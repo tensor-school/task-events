@@ -34,7 +34,7 @@ describe('События', () => {
 
             function triggerEvent(el: HTMLElement): void {
                 const e = new MouseEvent('mouseover', {
-                    bubbles: false,
+                    bubbles: true,
                     cancelable: true,
                 });
                 el.dispatchEvent(e);
