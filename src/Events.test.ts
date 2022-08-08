@@ -54,10 +54,20 @@ describe('События', () => {
             expect(document.body).toMatchSnapshot();
         });
 
-        it('При первом клике в конец ссылки дописывается её href', () => {
+        it('При первом клике в конец ссылки дописывается её href и блокируется действие по умолчанию', () => {
             createLink();
+
+            const defaultHandlerStub = jest.fn();
+
+            document.body
+                .getElementsByTagName('a')[0]
+                .addEventListener('click', defaultHandlerStub);
+
             document.body.getElementsByTagName('a')[0].click();
             expect(document.body).toMatchSnapshot();
+            expect(defaultHandlerStub.mock.calls[0][0].defaultPrevented).toBe(
+                true,
+            );
         });
 
         it('При втором клике происходит действие по умолчанию', () => {

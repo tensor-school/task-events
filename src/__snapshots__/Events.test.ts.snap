@@ -48,7 +48,7 @@ exports[`События createButton() Создана кнопка в body с т
 </body>
 `;
 
-exports[`События createLink При первом клике в конец ссылки дописывается её href 1`] = `
+exports[`События createLink При первом клике в конец ссылки дописывается её href и блокируется действие по умолчанию 1`] = `
 <body>
   <a
     href="https://tensor.ru/"
